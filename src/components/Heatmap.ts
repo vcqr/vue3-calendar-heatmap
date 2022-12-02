@@ -137,11 +137,11 @@ export class Heatmap {
 	}
 
 	getColorIndex(count?: number) {
-		if (count === null || count === undefined) {
+		if (count === null || count === undefined || count <= 0) {
 			return 0;
 		}
 
-		if (count > this.max) {
+		if (count >= this.max) {
 			count = 5
 		}
 
@@ -149,7 +149,7 @@ export class Heatmap {
 		let avg = this.max / len
 		let pos = 0
 		for(let i = 1; i <= len; i++) {
-			if(count < avg * i) {
+			if(count <= avg * i) {
 				pos = i
 				break
 			}
