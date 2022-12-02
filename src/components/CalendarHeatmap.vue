@@ -158,6 +158,7 @@ export default /*#__PURE__*/defineComponent({
 			} else {
 				tippySingleton = createSingleton(tippyInstances, {
 					moveTransition: 'transform 0.1s ease-out',
+					hideOnClick: 'toggle',
 					allowHTML: true
 				});
 			}
