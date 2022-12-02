@@ -70,7 +70,7 @@
 			:values="values"
 			:end-date="endDate"
 			:style="{ 'max-width': orientation === 'vertical' ? '145px' : '675px' }"
-			:tooltip-formatter="(c, u) => c.count ? (c.count / 3600 / 1000) + ' ' + u : 'NÖX'"
+			:tooltip-formatter="(c, u) => c.count ? c.count + ' ' + u : 'NÖX'"
 			:no-data-text="(c, u) => {
 				return 'No Data: ' + dateFormat('YYYY-mm-dd', c.date)
 			}"
@@ -85,7 +85,7 @@
 			:values="values"
 			:end-date="endDate"
 			:style="{ 'max-width': orientation === 'vertical' ? '145px' : '675px' }"
-			:tooltip-formatter="(c, u) => c.count ? (c.count / 3600 / 1000) + ' ' + u : 'NÖX'"
+			:tooltip-formatter="(c, u) => c.count ? c.count + ' ' + u : 'NÖX'"
 			:no-data-text="(c, u) => {
 				return 'No Data: ' + dateFormat('YYYY-mm-dd', c.date)
 			}"
@@ -99,6 +99,7 @@ import { defineComponent } from 'vue';
 import Vue3CalendarHeatmap from '@/components/CalendarHeatmap.vue';
 import CalendarHeatmap from '@/components/CalendarHeatmap.vue';
 import { data } from './data';
+import { count } from 'console';
 
 export default defineComponent({
 	name: 'ServeDev',

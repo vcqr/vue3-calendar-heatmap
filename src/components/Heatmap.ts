@@ -139,13 +139,23 @@ export class Heatmap {
 	getColorIndex(count?: number) {
 		if (count === null || count === undefined) {
 			return 0;
-		} else if (count <= 0) {
-			return 1;
-		} else if (count >= this.max) {
-			return 5;
-		} else {
-			return (Math.ceil(((count * 100) / this.max) * (0.03))) + 1;
 		}
+
+		if (count > this.max) {
+			count = 5
+		}
+
+		let len = Heatmap.DEFAULT_RANGE_COLOR_LIGHT.length - 1
+		let avg = this.max / len
+		let pos = 0
+		for(let i = 1; i <= len; i++) {
+			if(count < avg * i) {
+				pos = i
+				break
+			}
+		}
+
+		return pos
 	}
 
 	getCountEmptyDaysAtStart() {
